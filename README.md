@@ -38,7 +38,7 @@ $ cat /sys/module/kvm_intel/parameters/nested
 When cloning, choose a more suiteable  name for the target directory!
 
 ```ShellSession
-$ git clone https://github.com/belbob/one-playground.git my-one-playground
+$ git clone https://github.com/belbob/one5-playground.git my-one-playground
 ```
 After cloning, it's best to remove the `.git` directory and initialise a new repository. The history of the code is most probably irrelevant for your opennebula project...
 
