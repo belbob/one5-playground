@@ -1,0 +1,11 @@
+---
+repos:
+ - epel-release
+packages:
+ - ntp
+ - git
+ - cockpit
+services:
+ - sshd
+ - ntpd
+ - cockpit

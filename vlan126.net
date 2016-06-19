@@ -1,0 +1,25 @@
+NAME   = "lan126"
+BRIDGE = "br2"
+VN_MAD = "ovswitch"
+VLAN = "NO"
+
+AR=[
+    TYPE = "IP4",
+    IP   = "192.168.126.254",
+    SIZE = "1",
+    DNS  = "192.168.125.1",
+    GATEWAY = "192.168.126.254"
+]
+
+AR=[
+    TYPE = "IP4",
+    IP   = "192.168.126.150",
+    SIZE = "50",
+    DNS  = "192.168.125.1",
+    GATEWAY = "192.168.126.254"
+]
+
+DNS     = "192.168.125.1"
+GATEWAY = "192.168.126.254"
+
+DESCRIPTION = "lan126"

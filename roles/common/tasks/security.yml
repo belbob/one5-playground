@@ -1,0 +1,7 @@
+---
+- name: Enforcing SELinux
+  selinux:
+    policy: targeted
+    state: "{{ selinux_state }}"
+  tags:
+    - security

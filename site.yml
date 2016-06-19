@@ -1,0 +1,12 @@
+---
+- hosts: all
+  user: vagrant
+  become: true
+  gather_facts: True
+
+  roles:
+  - common
+  - { role: sunstone, when: "inventory_hostname == 'one1'" }
+  - nodes
+  - ovs
+  - glusterfs 

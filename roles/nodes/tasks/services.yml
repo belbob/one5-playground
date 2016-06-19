@@ -1,0 +1,10 @@
+---
+- name: Ensure all services running
+  service:
+    name: "{{ item }}"
+    enabled: true
+    state: started
+  with_items: "{{ services }}"
+  when: services is defined
+  tags:
+    - services

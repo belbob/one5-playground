@@ -1,0 +1,8 @@
+DEVICE="{{item.ovs_br}}"
+{% if item.ovs_br == "br1" %}
+IPADDR={{ansible_eth1.ipv4.address}}
+{% endif %}
+BOOTPROTO="none"
+ONBOOT="yes"
+TYPE="OVSBridge"
+DEVICETYPE="ovs"

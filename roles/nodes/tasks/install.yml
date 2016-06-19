@@ -1,0 +1,25 @@
+---
+- name: enable opennebula.repo
+  copy: 
+    src: "opennebula.repo" 
+    dest: "/etc/yum.repos.d/opennebula.repo" 
+    owner: root 
+    group: root 
+    mode: 644
+    
+- name: create hosts file
+  copy: 
+    src: "etc_host" 
+    dest: "/etc/hosts" 
+    owner: root 
+    group: root 
+    mode: 644
+    
+- name: Ensure some packages are installed
+  yum:
+    pkg: "{{ item }}"
+    state: installed
+  with_items: "{{ packages }}"
+  when: packages is defined
+  tags:
+    - install

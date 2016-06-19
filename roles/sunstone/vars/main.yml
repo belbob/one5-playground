@@ -1,0 +1,48 @@
+---
+packages:
+ - opennebula-server
+ - opennebula-sunstone
+ - opennebula-ruby
+ - opennebula-flow
+ - gcc
+ - gcc-c++
+ - sqlite-devel
+ - mysql-devel
+ - openssl-devel
+ - curl-devel
+ - rubygem-rake
+ - libxml2-devel
+ - libxslt-devel
+ - patch
+ - ruby-devel
+ - make
+
+gems:
+ - nokogiri
+ - json
+ - rack 
+ - sinatra 
+ - thin 
+ - memcache-client 
+ - zendesk_api 
+ - sqlite3 
+ - sequel 
+ - amazon-ec2 
+ - uuidtools 
+ - curb 
+ - net-ldap 
+ - builder 
+ - trollop 
+ - parse-cron 
+ - ox 
+ - mysql 
+ - softlayer_api
+ - configparser 
+ - azure
+
+services:
+ - opennebula
+ - opennebula-sunstone
+ - opennebula-flow
+ - rpcbind
+ - nfs-server

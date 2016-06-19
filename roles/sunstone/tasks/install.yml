@@ -1,0 +1,42 @@
+---
+- name: enable opennebula.repo
+  copy: src="opennebula.repo" dest="/etc/yum.repos.d/opennebula.repo" owner=root group=root mode=644
+    
+- name: Ensure some packages are installed
+  yum:
+    pkg: "{{ item }}"
+    state: installed
+  with_items: "{{ packages }}"
+  when: packages is defined
+  tags:
+    - install
+
+- name: Ensure treetop 1.6.3 is installed
+  gem:
+    name: treetop
+    version: 1.6.3
+    state: present
+    user_install: no
+
+- name: Ensure aws-sdk 1.33 is installed
+  gem:
+    name: aws-sdk
+    version: 1.33
+    state: present
+    user_install: no
+
+- name: Ensure some gems are installed
+  gem:
+    name: "{{ item }}"
+    state: present
+    user_install: no
+  with_items: "{{ gems }}"
+  when: gems is defined
+  tags:
+    - install
+
+- name: config sunstone-server
+  copy: src="sunstone-server.conf" dest="/etc/one/sunstone-server.conf" owner=root group=root mode=644
+
+- name: configure nfs
+  copy: src="exports" dest="/etc/exports" owner=root group=root mode=644

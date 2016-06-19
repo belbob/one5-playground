@@ -1,0 +1,9 @@
+---
+- name: Ensure some packages are installed
+  yum:
+    pkg: "{{ item }}"
+    state: installed
+  with_items: "{{ packages }}"
+  when: packages is defined
+  tags:
+    - install

@@ -1,0 +1,17 @@
+NAME   = "wan"
+BRIDGE = "br1"
+VN_MAD = "ovswitch"
+VLAN = "NO"
+
+AR=[
+    TYPE = "IP4",
+    IP   = "192.168.125.254",
+    SIZE = "1",
+    DNS  = "192.168.125.1",
+    GATEWAY = "192.168.125.1"
+]
+
+DNS     = "192.168.125.1"
+GATEWAY = "192.168.125.1"
+
+DESCRIPTION = "wan connection"

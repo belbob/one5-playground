@@ -1,0 +1,20 @@
+---
+- name: Ensure some repos are installed
+  yum:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: true
+  with_items: "{{ repos }}" 
+  when: repos is defined
+  tags:
+    - install
+
+- name: Ensure some packages are installed
+  yum:
+    pkg: "{{ item }}"
+    state: latest
+    update_cache: true 
+  with_items: "{{ packages }}"
+  when: packages is defined
+  tags:
+    - install

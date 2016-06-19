@@ -1,0 +1,20 @@
+---
+- include: install.yml  # install pkgs
+- include: services.yml  # running services
+
+- name: create ssh keys
+  user: 
+    name: oneadmin 
+    generate_ssh_key: yes 
+    ssh_key_file: .ssh/id_rsa
+
+- name: set authorized_keys
+  shell: "cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys"
+  become_user: oneadmin
+
+- name: set snippets for ssh config
+  copy: 
+    src: ssh-config 
+    dest: /var/lib/one/.ssh/config 
+    owner: oneadmin 
+    mode: 0600

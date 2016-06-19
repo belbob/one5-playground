@@ -1,0 +1,26 @@
+---
+packages:
+ - http://cbs.centos.org/kojifiles/packages/openvswitch/2.5.0/2.el7/x86_64/openvswitch-2.5.0-2.el7.x86_64.rpm
+ 
+services:
+ - openvswitch
+
+ovs:
+ - ovs_br: br1
+   ovs_nic: eth1
+   profile: ovsbr
+
+ - ovs_br: br2
+   ovs_nic: eth2
+   profile: ovsbr
+
+ - ovs_br: br3
+   ovs_nic: eth3
+   profile: ovsbr
+
+ - ovs_br: br4
+   ovs_nic: eth4
+   profile: ovsbr
+
+
+

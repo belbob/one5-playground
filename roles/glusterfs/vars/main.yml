@@ -1,0 +1,8 @@
+---
+repos:
+ - centos-release-gluster
+packages:
+ - glusterfs-server
+ - system-storage-manager  
+services:
+ - glusterd

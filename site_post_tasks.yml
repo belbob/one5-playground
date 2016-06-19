@@ -1,0 +1,74 @@
+---
+- hosts: all
+  user: vagrant
+  become: true
+  gather_facts: True
+
+  tasks: 
+  - name: restart opennebula-sunston
+    shell: "systemctl restart opennebula-sunstone"
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+
+  - name: create new oneadmin
+    shell: "oneuser create admin password"
+    become_user: oneadmin
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+
+  - name: change admin to group oneadmin
+    shell: "oneuser chgrp admin oneadmin"
+    become_user: oneadmin
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+    
+  - name: copy vwan.net
+    copy: src="vwan.net" dest="/var/lib/one/vwan.net" owner=oneadmin group=oneadmin mode=644
+
+  - name: create virtual network vwan
+    shell: "onevnet create vwan.net"
+    become_user: oneadmin
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+    
+  - name: copy vlan126.net
+    copy: src="vlan126.net" dest="/var/lib/one/vlan126.net" owner=oneadmin group=oneadmin mode=644
+
+  - name: create virtual network vlan126
+    shell: "onevnet create vlan126.net"
+    become_user: oneadmin
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+    
+  - name: copy vlan127.net
+    copy: src="vlan127.net" dest="/var/lib/one/vlan127.net" owner=oneadmin group=oneadmin mode=644
+
+  - name: create virtual network vlan127
+    shell: "onevnet create vlan127.net"
+    become_user: oneadmin
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+    
+  - name: copy vlan128.net
+    copy: src="vlan128.net" dest="/var/lib/one/vlan128.net" owner=oneadmin group=oneadmin mode=644
+
+  - name: create virtual network vlan128
+    shell: "onevnet create vlan128.net"
+    become_user: oneadmin
+    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+
+  - name: mount /var/lib/one
+    mount:
+      name: /var/lib/one
+      src: 192.168.125.31:/var/lib/one
+      fstype: nfs
+      opts: soft,intr,rsize=8192,wsize=8192,noauto
+      state: mounted
+    when: "inventory_hostname != 'one1'"
+     
+  - name: do ssh-keyscan
+    shell: "ssh-keyscan one1 one2 one3 > ~/.ssh/known_hosts"
+    become_user: oneadmin
+#    when: "inventory_hostname == 'one1'"
+

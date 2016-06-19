@@ -1,0 +1,6 @@
+---
+packages:
+ - opennebula-node-kvm
+
+services:
+ - libvirtd
