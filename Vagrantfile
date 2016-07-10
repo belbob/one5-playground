@@ -19,7 +19,7 @@ Vagrant.configure(2) do |config|
           domain.cpus = 2
           domain.nested = true
           domain.volume_cache = 'none'
-#          domain.machine_virtual_size = 20
+ #         domain.machine_virtual_size = 10
           domain.storage :file, :size => '5G' #  play with gluster
           domain.storage :file, :size => '5G' #  play with gluster
       end

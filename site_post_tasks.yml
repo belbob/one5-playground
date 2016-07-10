@@ -5,6 +5,16 @@
   gather_facts: True
 
   tasks: 
+  - name: restart network
+    shell: "systemctl restart network"
+#    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+
+  - name: restart libvirtd
+    shell: "systemctl restart libvirtd"
+#    when: "inventory_hostname == 'one1'"
+    ignore_errors: yes
+
   - name: restart opennebula-sunston
     shell: "systemctl restart opennebula-sunstone"
     when: "inventory_hostname == 'one1'"

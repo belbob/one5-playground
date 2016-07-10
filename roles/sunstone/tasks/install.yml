@@ -11,29 +11,14 @@
   tags:
     - install
 
-- name: Ensure treetop 1.6.3 is installed
-  gem:
-    name: treetop
-    version: 1.6.3
-    state: present
-    user_install: no
+- name: Make install_gems non interactive
+  git: 
+    repo: "https://github.com/OpenNebula/one.git"
+    dest: /home/vagrant/one
+    clone: yes
 
-- name: Ensure aws-sdk 1.33 is installed
-  gem:
-    name: aws-sdk
-    version: 1.33
-    state: present
-    user_install: no
-
-- name: Ensure some gems are installed
-  gem:
-    name: "{{ item }}"
-    state: present
-    user_install: no
-  with_items: "{{ gems }}"
-  when: gems is defined
-  tags:
-    - install
+- name: Run install_gems
+  shell: "one/share/install_gems/install_gems --yes"
 
 - name: config sunstone-server
   copy: src="sunstone-server.conf" dest="/etc/one/sunstone-server.conf" owner=root group=root mode=644

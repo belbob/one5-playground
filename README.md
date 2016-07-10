@@ -14,7 +14,7 @@ This project is intended as a demo/playground for a cloud-introductory , teachin
 
 ## Dependencies
 
-I use as host a Fedora 23 machine, make sure you have installed :
+I use as host a Fedora 24 machine, make sure you have installed :
 
 - vagrant
 - vagrant-libvirt
