@@ -15,6 +15,7 @@
   git: 
     repo: "https://github.com/OpenNebula/one.git"
     dest: /home/vagrant/one
+    version: bug-4702
     clone: yes
 
 - name: Run install_gems
