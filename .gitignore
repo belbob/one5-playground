@@ -2,6 +2,7 @@
 
 # Hidden Vagrant-directory
 .vagrant
+.Vagrantfile.*
 
 # Backup files (e.g. Vim, Gedit, etc.)
 *~
