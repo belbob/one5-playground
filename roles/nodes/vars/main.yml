@@ -1,6 +1,6 @@
 ---
 packages:
+ - qemu-kvm-ev
  - opennebula-node-kvm
-
 services:
  - libvirtd
