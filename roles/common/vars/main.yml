@@ -1,7 +1,6 @@
 ---
 repos:
  - epel-release
- - centos-release-qemu-ev
 packages:
  - ntp
  - git

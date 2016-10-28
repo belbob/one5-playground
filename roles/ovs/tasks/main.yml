@@ -17,15 +17,6 @@
   with_items:
     "{{ovs}}"
   ignore_errors: yes
-
-#- name: restart network and setup ovs bridges - workaround
-#  shell: "systemctl restart network"
-#  ignore_errors: yes
-#
-#- name: stop network - unsolved network issues - workaround
-#  shell: "systemctl stop network"
-#  ignore_errors: yes
   
 - name: restart NetworkManager
   shell: "systemctl restart NetworkManager"
-

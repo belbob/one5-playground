@@ -1,13 +1,13 @@
 # one5-playground
 This is an Ansible project with a development environment powered by Vagrant.
 
-This project sets up: 
+This project sets up:
 
 * 3 virtual opennebula nodes with CentOS 7 and include :
 * 4 virtual networks (1 x nat, 3 x isolated)
 * 1 x opennebula-sunstone (web interface)
 * 3 x opennebula-nodes
-* 3 x disk per node, so you can play with e.g. glusterfs ,.. or add some disks with e.g. system-storage-manager 
+* 3 x disk per node, so you can play with e.g. glusterfs ,.. or add some disks with e.g. system-storage-manager
 * Bridging with OpenvSwitch configured for 4 nic's on every node
 
 This project is intended as a demo/playground for a cloud-introductory , teaching git, vagrant and ansible, in de most simple way, and still useable in my classroom. Surely , this playbook can still be improved, but this way it is manageable in my classroom with my students.
@@ -57,7 +57,7 @@ after finishing one1 you can start the other nodes
 ```ShellSession
 $ vagrant up one2
 ```
-and 
+and
 ```ShellSession
 $ vagrant up one3
 ```
@@ -83,7 +83,6 @@ if this configuration is not suiteable for you, you may edit following files:
 
 - Vagrantfile
 - site_post_tasks.yml
-- roles/nodes/files/export
 
 ### workaround systemd - vagrant - network.services issues
 
@@ -94,7 +93,7 @@ To setup the ovs-bridge I start network.service and stop them again, then I stop
 You can check ovs configuration with de following command:
 
 ```ShellSession
-$ sudo ovs-vsctl show 
+$ sudo ovs-vsctl show
 ```
 
 ### After a vagrant suspend or halt
@@ -142,6 +141,4 @@ Written by Robert Keersse (robert.keersse@gmail.com)
 
 Contributions by:
 
-- 
-
-
+-

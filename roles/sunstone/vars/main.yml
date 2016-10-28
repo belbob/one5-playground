@@ -5,22 +5,10 @@ packages:
  - opennebula-ruby
  - opennebula-gate
  - opennebula-flow
- # - gcc
- # - gcc-c++
- # - sqlite-devel
- # - mysql-devel
- # - openssl-devel
- # - curl-devel
- # - rubygem-rake
- # - libxml2-devel
- # - libxslt-devel
- # - patch
- # - ruby-devel
- # - make
  - redhat-lsb
 services:
  - opennebula
  - opennebula-sunstone
-# - opennebula-flow
+ - opennebula-flow
  - rpcbind
  - nfs-server

@@ -11,25 +11,8 @@
   tags:
     - install
 
-# - name: Make install_gems non interactive
-#   git:
-#     repo: "https://github.com/OpenNebula/one.git"
-#     dest: /home/vagrant/one
-#     version: bug-4702
-#     clone: yes
-#
-# - name: Run install_gems
-#   shell: "one/share/install_gems/install_gems --yes"
-
 - name: Run install_gems
   shell: "sudo su - -c '/usr/share/one/install_gems --yes'"
-  # shell: "su - c'/usr/share/one/install_gems --yes'"
-  # become: true
-  # become_method: sudo
-  # become_user: root
-
-- name: config sunstone-server
-  copy: src="sunstone-server.conf" dest="/etc/one/sunstone-server.conf" owner=root group=root mode=644
 
 - name: configure nfs
   copy: src="exports" dest="/etc/exports" owner=root group=root mode=644
