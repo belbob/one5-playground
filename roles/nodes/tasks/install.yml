@@ -1,7 +1,7 @@
 ---
 - name: enable opennebula.repo
-  copy:
-    src: "opennebula.repo"
+  template:
+    src: "opennebula_repo.j2"
     dest: "/etc/yum.repos.d/opennebula.repo"
     owner: root
     group: root
@@ -10,7 +10,7 @@
 - name: create hosts file
   copy:
     src: "etc_host"
-    dest: "/etc/hosts" 
+    dest: "/etc/hosts"
     owner: root
     group: root
     mode: 644

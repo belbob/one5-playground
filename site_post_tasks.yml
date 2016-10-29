@@ -4,15 +4,13 @@
   become: true
   gather_facts: True
 
-  tasks: 
+  tasks:
   - name: restart network
     shell: "systemctl restart network"
-#    when: "inventory_hostname == 'one1'"
     ignore_errors: yes
 
   - name: restart libvirtd
     shell: "systemctl restart libvirtd"
-#    when: "inventory_hostname == 'one1'"
     ignore_errors: yes
 
   - name: restart opennebula-sunston
@@ -31,7 +29,7 @@
     become_user: oneadmin
     when: "inventory_hostname == 'one1'"
     ignore_errors: yes
-    
+
   - name: copy vwan.net
     copy: src="vwan.net" dest="/var/lib/one/vwan.net" owner=oneadmin group=oneadmin mode=644
 
@@ -40,7 +38,7 @@
     become_user: oneadmin
     when: "inventory_hostname == 'one1'"
     ignore_errors: yes
-    
+
   - name: copy vlan126.net
     copy: src="vlan126.net" dest="/var/lib/one/vlan126.net" owner=oneadmin group=oneadmin mode=644
 
@@ -49,7 +47,7 @@
     become_user: oneadmin
     when: "inventory_hostname == 'one1'"
     ignore_errors: yes
-    
+
   - name: copy vlan127.net
     copy: src="vlan127.net" dest="/var/lib/one/vlan127.net" owner=oneadmin group=oneadmin mode=644
 
@@ -58,7 +56,7 @@
     become_user: oneadmin
     when: "inventory_hostname == 'one1'"
     ignore_errors: yes
-    
+
   - name: copy vlan128.net
     copy: src="vlan128.net" dest="/var/lib/one/vlan128.net" owner=oneadmin group=oneadmin mode=644
 
@@ -76,9 +74,7 @@
       opts: soft,intr,rsize=8192,wsize=8192,noauto
       state: mounted
     when: "inventory_hostname != 'one1'"
-     
+
   - name: do ssh-keyscan
     shell: "ssh-keyscan one1 one2 one3 > ~/.ssh/known_hosts"
     become_user: oneadmin
-#    when: "inventory_hostname == 'one1'"
-

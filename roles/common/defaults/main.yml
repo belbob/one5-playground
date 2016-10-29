@@ -1,3 +1,4 @@
 ---
+# SELINUX STATE
 #selinux_state: enforcing
-selinux_state: permissive
+#selinux_state: permissive

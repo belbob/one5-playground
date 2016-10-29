@@ -1,6 +1,11 @@
 ---
 - name: enable opennebula.repo
-  copy: src="opennebula.repo" dest="/etc/yum.repos.d/opennebula.repo" owner=root group=root mode=644
+  template:
+    src: "opennebula_repo.j2"
+    dest: "/etc/yum.repos.d/opennebula.repo"
+    owner: root
+    group: root
+    mode: 644
 
 - name: Ensure some packages are installed
   yum:
@@ -15,4 +20,9 @@
   shell: "sudo su - -c '/usr/share/one/install_gems --yes'"
 
 - name: configure nfs
-  copy: src="exports" dest="/etc/exports" owner=root group=root mode=644
+  copy:
+    src: "exports"
+    dest: "/etc/exports"
+    owner: root
+    group: root
+    mode: 644

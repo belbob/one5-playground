@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # # vi: set ft=ruby :
 
+VAGRANT_ONE_VER = "5.2"
+VAGRANT_SELINUX = "permissive"
+
 Vagrant.configure(2) do |config|
   config.vm.box = "centos/7"
   (1..3).each do |i|
@@ -19,12 +22,16 @@ Vagrant.configure(2) do |config|
           domain.cpus = 2
           domain.nested = true
           domain.volume_cache = 'none'
- #         domain.machine_virtual_size = 10
-          domain.storage :file, :size => '5G' #  play with gluster
-          domain.storage :file, :size => '5G' #  play with gluster
+          (1..3).each do |disks|
+            domain.storage :file, :size => '5G' #  play with gluster, raid,..
+          end
       end
 
       node.vm.provision :ansible do |ansible|
+         ansible.extra_vars = {
+            one_ver: VAGRANT_ONE_VER,
+            selinux_state: VAGRANT_SELINUX
+         }
          ansible.playbook = "site.yml"
       end
 
