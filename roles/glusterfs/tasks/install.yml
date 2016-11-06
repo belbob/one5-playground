@@ -4,7 +4,7 @@
     pkg: "{{ item }}"
     state: latest
     update_cache: true
-  with_items: "{{ repos }}" 
+  with_items: "{{ repos }}"
   when: repos is defined
   tags:
     - install
@@ -13,8 +13,16 @@
   yum:
     pkg: "{{ item }}"
     state: latest
-    update_cache: true 
+    update_cache: true
   with_items: "{{ packages }}"
   when: packages is defined
   tags:
     - install
+
+- name: config glusterd.vol
+  copy:
+    src: "glusterd.vol"
+    dest: "/etc/glusterfs/glusterd.vol"
+    owner: root
+    group: root
+    mode: 644

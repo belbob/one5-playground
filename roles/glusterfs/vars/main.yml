@@ -3,6 +3,7 @@ repos:
  - centos-release-gluster
 packages:
  - glusterfs-server
- - system-storage-manager  
+ - glusterfs-fuse
+ - system-storage-manager
 services:
  - glusterd

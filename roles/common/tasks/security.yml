@@ -5,3 +5,16 @@
     state: "{{ selinux_state }}"
   tags:
     - security
+
+- name: allow root login with ssh
+  lineinfile:
+    dest: /etc/ssh/sshd_config
+    regexp: ^PasswordAuthentication
+    line: PasswordAuthentication yes
+  notify:
+  - restart sshd
+
+- name: set password for root
+  user:
+    name: root
+    password: papAq5PwY/QQM
